@@ -1,5 +1,7 @@
-from API_string_to_float_trafo import high_prec_to_float
-from UC_tel_controller_boundarys import TelescopeControllerOutputBoundary
+from interface_adapters.string_to_float_trafo import (
+	high_prec_to_float)
+from use_cases.tel_controller_boundarys import (
+	TelescopeControllerOutputBoundary)
 
 class TelescopeControllerAPI(TelescopeControllerOutputBoundary):
     """API to define interaction with serial connection.

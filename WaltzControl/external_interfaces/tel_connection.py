@@ -1,13 +1,14 @@
 import time
 
-from API_tel_controller import TelescopeConnectionInterface
+from interface_adapters.tel_controller import (
+	TelescopeConnectionInterface)
 
 try:
     import serial
     print('Importing serial')
 except ImportError:
     print('Importing fakeSerial')
-    import fakeSerial as serial
+    import external_interfaces.fakeSerial as serial
 
 class Lx200TelConnection(TelescopeConnectionInterface):
     """Defines commands send to serial port using lx200 protocol.

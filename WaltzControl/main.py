@@ -1,11 +1,11 @@
-from UC_position_update import PositionUpdater
-from UC_tel_controller_boundarys import (TelescopeControllerInputBoundary,
+from use_cases.position_update import PositionUpdater
+from use_cases.tel_controller_boundarys import (TelescopeControllerInputBoundary,
                                          TelescopeControllerOutputBoundary)
-from ENT_positions import HorizontalPosition
-from API_tel_controller import (TelescopeControllerAPI,
-                                TelescopeConnectionInterface)
-from DEV_tel_connection import (Lx200TelConnection,
-                                SerialConnection)
+from entities.positions import HorizontalPosition
+from interface_adapters.tel_controller import (TelescopeControllerAPI,
+	TelescopeConnectionInterface)
+from external_interfaces.tel_connection import (Lx200TelConnection,
+	SerialConnection)
 
 hor_pos = HorizontalPosition(0,30)
 print(hor_pos.ra, hor_pos.dec)

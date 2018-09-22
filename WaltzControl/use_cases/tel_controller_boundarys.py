@@ -2,6 +2,8 @@ class TelescopeControllerInputBoundary:
     """Contains Responses from TelescopeController Device.
     """
     def __init__(self):
+        """Store Responses of Telescope Controller as floats.
+        """
         self.ra_response = None
         self.dec_response = None
         self.validate_response = None

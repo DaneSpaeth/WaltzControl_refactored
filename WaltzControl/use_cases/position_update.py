@@ -1,5 +1,3 @@
-import ENT_positions
-
 class PositionUpdater:
     """Update Position Object.
     """
