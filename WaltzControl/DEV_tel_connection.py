@@ -1,3 +1,5 @@
+import time
+
 from API_tel_controller import TelescopeConnectionInterface
 
 try:
@@ -7,13 +9,14 @@ except ImportError:
     print('Importing fakeSerial')
     import fakeSerial as serial
 
-def Lx200TelConnection(TelescopeConnectionInterface):
+class Lx200TelConnection(TelescopeConnectionInterface):
     """Defines commands send to serial port using lx200 protocol.
     """
     def __init__(self,serial_connection):
+        super().__init__()
         self.con = serial_connection
         
-    def get_ra():
+    def get_ra(self):
         """Send '#:GR#' to serial port.
         
            Output: Response string.
@@ -23,7 +26,7 @@ def Lx200TelConnection(TelescopeConnectionInterface):
         ra = self.con.get_response()
         return ra 
     
-    def get_dec():
+    def get_dec(self):
         """Send '#:GD#' to serial port.
         
            Output: Response string.
