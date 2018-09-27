@@ -15,9 +15,12 @@ def float_to_hms(pos_float):
     
     #But we have to take care of rounding up to 60. 
     #Increase minutes by one in that case.
-    if seconds==60:
-        seconds=0
-        minutes=minutes+1
+    if seconds == 60:
+        seconds = 0
+        minutes = minutes + 1
+    if minutes == 60:
+        minutes = 0
+        hours = hours + 1
         
     return (hours, minutes, seconds)
     
@@ -35,6 +38,9 @@ def ra_float_to_high_prec(ra_float):
     #ra do not contain signs
     #Calculate hours, minutes, seconds
     hours, minutes, seconds = float_to_hms(ra_float)
+    #24hours should be converted to 0hours
+    if hours == 24:
+        hours = 0
     ra_float='{:02}h{:02}m{:02}s'.format(hours,minutes,seconds)
     
     return ra_float

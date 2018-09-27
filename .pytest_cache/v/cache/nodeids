@@ -1,0 +1,13 @@
+[
+  "WaltzControl/entities/tests/test_positions.py::TestHorizontalPosition::()::test_init",
+  "WaltzControl/entities/tests/test_positions.py::TestHorizontalPosition::()::test_change_ra",
+  "WaltzControl/entities/tests/test_positions.py::TestHorizontalPosition::()::test_change_dec",
+  "WaltzControl/entities/tests/test_positions.py::TestHorizontalPosition::()::test_change_position",
+  "WaltzControl/interface_adapters/test_interface_adapters/test_float_to_string_trafo.py::test_float_to_hms",
+  "WaltzControl/interface_adapters/test_interface_adapters/test_float_to_string_trafo.py::test_ra_float_to_high_prec",
+  "WaltzControl/interface_adapters/test_interface_adapters/test_float_to_string_trafo.py::test_dec_float_to_high_prec",
+  "WaltzControl/interface_adapters/test_interface_adapters/test_presenter.py::TestPositionPresenter::()::test_present_position",
+  "WaltzControl/interface_adapters/test_interface_adapters/test_string_to_float_trafo.py::test_high_prec_to_float",
+  "WaltzControl/interface_adapters/test_interface_adapters/test_view_models.py::TestPositionViewModel::()::test_set_ra",
+  "WaltzControl/interface_adapters/test_interface_adapters/test_view_models.py::TestPositionViewModel::()::test_set_dec"
+]

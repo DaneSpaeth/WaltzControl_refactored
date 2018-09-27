@@ -1,4 +1,8 @@
-class TelescopeControllerInputBoundary:
+"""Boundarys for Responses from TelescopeController (TC) and Requests to TC.
+   Data entry and exit point into use_cases layer.
+"""
+
+class TelescopeControllerResponseBoundary:
     """Contains Responses from TelescopeController Device.
     """
     def __init__(self):
@@ -43,7 +47,7 @@ class TelescopeControllerInputBoundary:
         """
         return (self.ra_response, self.dec_response)
     
-class TelescopeControllerOutputBoundary:
+class TelescopeControllerRequestBoundary:
     """Interface for commands to TelescopeController Device.
     """
     def __init__(self):

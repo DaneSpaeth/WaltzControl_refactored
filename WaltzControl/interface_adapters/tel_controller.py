@@ -1,9 +1,11 @@
+"""API for TelescopeController and Inerface for TelescopeCommunicator."""
+
 from interface_adapters.string_to_float_trafo import (
 	high_prec_to_float)
 from use_cases.tel_controller_boundarys import (
-	TelescopeControllerOutputBoundary)
+	TelescopeControllerRequestBoundary)
 
-class TelescopeControllerAPI(TelescopeControllerOutputBoundary):
+class TelescopeControllerAPI(TelescopeControllerRequestBoundary):
     """API to define interaction with serial connection.
     """
     def __init__(self, UC_input, tel_connection):
@@ -11,16 +13,16 @@ class TelescopeControllerAPI(TelescopeControllerOutputBoundary):
         self.tel_connection = tel_connection
     
     def send_ra_response(self, ra):
-        """Sends ra response to Input boundary in Use Cases.
+        """Sends ra response to Response boundary in Use Cases.
         
-           Input: ra in hours as float.
+           Response: ra in hours as float.
         """
         self.UC_input.set_ra_response(ra)
         
     def send_dec_response(self, dec):
-        """Sends dec response to Input boundary in Use Cases.
+        """Sends dec response to Response boundary in Use Cases.
         
-           Input: dec in degrees as float.
+           Response: dec in degrees as float.
         """
         self.UC_input.set_dec_response(dec)
         
@@ -37,7 +39,7 @@ class TelescopeControllerAPI(TelescopeControllerOutputBoundary):
         self.send_ra_response(ra_float)
         self.send_dec_response(dec_float)
         
-class TelescopeConnectionInterface:
+class TelescopeCommunicatorInterface:
     """Interface for Telescope Connection.
     """
     def __init__(self):
