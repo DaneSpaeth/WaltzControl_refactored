@@ -1,0 +1,9 @@
+{
+  "WaltzControl/entities/tests/test_positions.py::TestHorizontalPosition::()::test_change_dec": true,
+  "WaltzControl/entities/tests/test_positions.py::TestHorizontalPosition::()::test_change_position": true,
+  "WaltzControl/entities/tests/test_positions.py::TestHorizontalPosition::()::test_change_ra": true,
+  "WaltzControl/entities/tests/test_positions.py::TestHorizontalPosition::()::test_init": true,
+  "WaltzControl/interface_adapters/test_interface_adapters/test_presenter.py::TestPositionPresenter::()::test_present_position": true,
+  "WaltzControl/interface_adapters/test_interface_adapters/test_view_models.py::TestPositionViewModel::()::test_set_dec": true,
+  "WaltzControl/interface_adapters/test_interface_adapters/test_view_models.py::TestPositionViewModel::()::test_set_ra": true
+}

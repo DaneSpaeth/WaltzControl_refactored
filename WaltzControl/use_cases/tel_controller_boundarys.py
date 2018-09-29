@@ -5,12 +5,16 @@
 class TelescopeControllerResponseBoundary:
     """Contains Responses from TelescopeController Device.
     """
-    def __init__(self):
+    def __init__(
+        self,
+        ra_response = None,
+        dec_response = None,
+        validate_response = None):
         """Store Responses of Telescope Controller as floats.
         """
-        self.ra_response = None
-        self.dec_response = None
-        self.validate_response = None
+        self.ra_response = ra_response
+        self.dec_response = dec_response
+        self.validate_response = validate_response
         
     def set_ra_response(self, ra):
         """Set ra response.
@@ -29,11 +33,11 @@ class TelescopeControllerResponseBoundary:
     def set_validate_response(self, valid):
         """Set validate response.
            
-           Input: valid as boolean (accounts for Returns of Telesope Controller
+           Input: valid as boolean (accounts for Returns of Telesope Controllere
                                     to set_target etc)
                                     
         """
-        self.valid_response = valid
+        self.validate_response = valid
         
     def reset_responses(self):
         """Reset all responses to None.
