@@ -25,6 +25,8 @@ class Serial:
         self.is_open  = True
         self._receivedData = b''
         self._data = b''
+        #self.fake_ra=b""
+        #self.fake_dec=b""
         self.fake_ra=b"15:15:00#"
         self.fake_dec=b"+25*00'00#"
         self.fake_target_ra=b''

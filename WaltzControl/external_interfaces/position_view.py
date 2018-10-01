@@ -47,5 +47,4 @@ class PositionView(tk.Frame):
         """Refreshes coordinates and calls itself."""
         self.refresh_ra()
         self.refresh_dec()
-        print('Refreshing coordinates')
         self.after(500, self.refresh_coordinates)

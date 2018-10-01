@@ -4,13 +4,20 @@ from interface_adapters.string_to_float_trafo import (
 	high_prec_to_float)
 from use_cases.tel_controller_boundarys import (
 	TelescopeControllerRequestBoundary)
+from interface_adapters.string_to_float_trafo import (
+    high_prec_to_float)
 
 class TelescopeControllerAPI(TelescopeControllerRequestBoundary):
     """API to define interaction with serial connection.
     """
-    def __init__(self, UC_input, tel_connection):
+    def __init__(self, UC_input, tel_communicator):
+        """Initialize TelescopeControllerAPI.
+        
+           Input: use_cases_input_boundary instance.
+                  tel_communicator instance.
+        """
         self.UC_input = UC_input
-        self.tel_connection = tel_connection
+        self.tel_communicator = tel_communicator
     
     def send_ra_response(self, ra):
         """Sends ra response to Response boundary in Use Cases.
@@ -30,8 +37,8 @@ class TelescopeControllerAPI(TelescopeControllerRequestBoundary):
         """Request position from serial connection, 
            transform to floats and send to UC input.
         """
-        string_ra = self.tel_connection.get_ra()
-        string_dec = self.tel_connection.get_dec()
+        string_ra = self.tel_communicator.get_ra()
+        string_dec = self.tel_communicator.get_dec()
         
         ra_float=high_prec_to_float(string_ra)
         dec_float=high_prec_to_float(string_dec)

@@ -55,7 +55,7 @@ class TestTelescopeControllerResponseBoundary():
         assert self.tel_response.dec_response == None
         assert self.tel_response.validate_response == None
 
-    def test_retrive_position(self):
+    def test_retrieve_position(self):
         """Test retrieve_position."""
         self.tel_response.set_ra_response(12.5)
         self.tel_response.set_dec_response(30.5)

@@ -1,1 +1,4 @@
-{}
+{
+  "WaltzControl/external_interfaces/tests/test_tel_communication.py::test_get_dec": true,
+  "WaltzControl/external_interfaces/tests/test_tel_communication.py::test_get_ra": true
+}
