@@ -2,7 +2,8 @@ import pytest
 
 from interface_adapters.float_to_string_trafo import (float_to_hms,
                                    ra_float_to_high_prec,
-                                   dec_float_to_high_prec)
+                                   dec_float_to_high_prec,
+                                   ha_float_to_high_prec)
 
 def test_float_to_hms():
     """Test float_to_hms."""
@@ -40,6 +41,18 @@ def test_dec_float_to_high_prec():
         dec_float_to_high_prec(91)
     with pytest.raises(ValueError):
         dec_float_to_high_prec(-91)
+        
+def test_ha_float_to_high_prec():
+    """ Test ha_float_to_high_prec."""
+    assert ha_float_to_high_prec(12) == '+12h00m00s'
+    assert ha_float_to_high_prec(0) == '+00h00m00s'
+    assert ha_float_to_high_prec(-1) == '-01h00m00s'
+    assert ha_float_to_high_prec(1.99999999) == '+02h00m00s'
+    
+    with pytest.raises(ValueError):
+        ha_float_to_high_prec(-12)
+        
+
 
 
     

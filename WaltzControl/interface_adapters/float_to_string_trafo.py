@@ -41,9 +41,9 @@ def ra_float_to_high_prec(ra_float):
     #24hours should be converted to 0hours
     if hours == 24:
         hours = 0
-    ra_float='{:02}h{:02}m{:02}s'.format(hours,minutes,seconds)
+    string ='{:02}h{:02}m{:02}s'.format(hours,minutes,seconds)
     
-    return ra_float
+    return string
 
 def dec_float_to_high_prec(dec_float):
     """Transforms float to high precision dec string in degrees.
@@ -63,9 +63,33 @@ def dec_float_to_high_prec(dec_float):
     #Calculate degrees, minutes, seconds with the absolute of the dec_float
     degrees, minutes, seconds = float_to_hms(abs(dec_float))
     
-    ra_float='''{}{:02}°{:02}'{:02}"'''.format(sign, degrees, minutes, seconds)
+    string = '''{}{:02}°{:02}'{:02}"'''.format(sign, degrees, minutes, seconds)
     
-    return ra_float
+    return string
+
+def ha_float_to_high_prec(ha_float):
+    """Transforms float to high precision ha string in hours.
+    
+       Input: float in hours 
+                                     
+       Output: High precision ha string (+HHhMMmSSs)
+    """
+    #Check if float is in range [0,24)
+    if ha_float <= -12  or ha_float > 12:
+        raise ValueError
+    #ha contain signs
+    if ha_float < 0:
+        sign = '-'
+    if ha_float >= 0:
+        sign = '+'
+    #Calculate hours, minutes, seconds
+    hours, minutes, seconds = float_to_hms(abs(ha_float))
+    
+    string = '{}{:02}h{:02}m{:02}s'.format(sign, hours, minutes, seconds)
+    
+    return string
+
+
 
 
     

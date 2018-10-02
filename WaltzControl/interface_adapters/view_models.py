@@ -8,3 +8,11 @@ class PositionViewModel:
         self.ra = ''
         self.dec= ''
         
+class TimeViewModel:
+    """Contains times as strings.
+    """
+    def __init__(self):
+        self.LST = ''
+        self.LT = ''
+        self.UTC = ''
+        
