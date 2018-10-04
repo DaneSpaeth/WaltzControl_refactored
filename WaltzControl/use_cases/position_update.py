@@ -53,6 +53,7 @@ class PositionUpdaterHA(PositionUpdater):
                          tel_controller_input,
                          position_presenter)
         self.LST = LST
+        
     def update_position(self, ra, dec, ha):
         """Update HorizontalPositionHA instance.
         
@@ -72,6 +73,6 @@ class PositionUpdaterHA(PositionUpdater):
         """
         self.tel_controller_output.request_position()
         (ra, dec) = self.tel_controller_input.retrieve_position()
-        ha = get_hour_angle(ra)
+        ha = self.get_hour_angle(ra)
         self.update_position(ra, dec, ha)
         super().call_presenter()

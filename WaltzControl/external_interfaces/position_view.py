@@ -24,8 +24,10 @@ class OutputView(tk.Frame):
         #Store Position
         self.ra = tk.StringVar()
         self.dec = tk.StringVar()
+        self.ha = tk.StringVar()
         self.ra.set(self.pos_view_model.ra)
         self.dec.set(self.pos_view_model.dec)
+        self.ha.set(self.pos_view_model.ha)
         
         #Display Time
         self.LST_label= tk.Label(font=('arial', 15, 'bold'),
@@ -74,6 +76,15 @@ class OutputView(tk.Frame):
                                    textvariable = self.dec)
         self.DEC_display.grid(row = 1, column = 3)
         
+        self.HA_label= tk.Label(font=('arial', 15, 'bold'),
+                                 text= "HA")
+        self.HA_label.grid(row = 1, column = 4)
+        
+        self.HA_display= tk.Label(font=('arial', 20, 'bold'),
+                                   bg='light green',
+                                   textvariable = self.ha)
+        self.HA_display.grid(row = 1, column = 5)
+        
         self.refresh_times()
         self.refresh_coordinates()
         
@@ -85,6 +96,10 @@ class OutputView(tk.Frame):
     def refresh_dec(self):
         """Refreshes dec StringVar."""
         self.dec.set(self.pos_view_model.dec)
+        
+    def refresh_ha(self):
+        """Refreshes ha StringVar."""
+        self.ha.set(self.pos_view_model.ha)
         
     def refresh_LST(self):
         """Refreshes LST StringVar."""
@@ -109,4 +124,5 @@ class OutputView(tk.Frame):
         self.refresh_LST()
         self.refresh_LT()
         self.refresh_UTC()
+        self.refresh_ha()
         self.after(200, self.refresh_times)
