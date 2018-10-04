@@ -6,11 +6,12 @@ class OutputView(tk.Frame):
     """View for Positions"""
 
     def __init__(self, pos_view_model, time_view_model, parent, *args, **kwargs):
-        super().__init__(parent, *args, **kwargs)
         """Constructor method.
            
            Inject pos_view_model, time_view_model and parent frame.
         """
+        super().__init__(parent, *args, **kwargs)
+        
         self.pos_view_model = pos_view_model
         self.time_view_model = time_view_model
         

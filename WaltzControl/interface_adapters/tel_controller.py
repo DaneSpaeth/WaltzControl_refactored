@@ -46,6 +46,40 @@ class TelescopeControllerAPI(TelescopeControllerRequestBoundary):
         self.send_ra_response(ra_float)
         self.send_dec_response(dec_float)
         
+    def move_west(self):
+        """Send command to tel_communicator."""
+        self.tel_communicator.move_west()
+        
+    def move_east(self):
+        """Send command to tel_communicator."""
+        self.tel_communicator.move_east()
+        
+    def move_north(self):
+        """Send command to tel_communicator."""
+        self.tel_communicator.move_north()
+        
+    def move_south(self):
+        """Send command to tel_communicator."""
+        self.tel_communicator.move_south()
+        
+    def stop_west(self):
+        """Send command to tel_communicator."""
+        self.tel_communicator.stop_west()
+        
+    def stop_east(self):
+        """Send command to tel_communicator."""
+        self.tel_communicator.stop_east()
+        
+    def stop_north(self):
+        """Send command to tel_communicator."""
+        self.tel_communicator.stop_north()
+        
+    def stop_south(self):
+        """Send command to tel_communicator."""
+        self.tel_communicator.stop_south()
+    
+    
+        
 class TelescopeCommunicatorInterface:
     """Interface for Telescope Connection.
     """
@@ -54,6 +88,22 @@ class TelescopeCommunicatorInterface:
     def get_ra(self):
         raise NotImplementedError
     def get_dec(self):
+        raise NotImplementedError
+    def move_west(self):
+        raise NotImplementedError
+    def move_east(self):
+        raise NotImplementedError
+    def move_north(self):
+        raise NotImplementedError
+    def move_south(self):
+        raise NotImplementedError
+    def stop_west(self):
+        raise NotImplementedError
+    def stop_east(self):
+        raise NotImplementedError
+    def stop_north(self):
+        raise NotImplementedError
+    def stop_south(self):
         raise NotImplementedError
         
         

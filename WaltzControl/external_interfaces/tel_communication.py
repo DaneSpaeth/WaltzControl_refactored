@@ -55,6 +55,63 @@ class TelescopeCommunicator(TelescopeCommunicatorInterface):
         dec = self.ser.get_response()
         return dec
     
+    def move_west(self):
+        """Move Telescope West.
+        
+           Returns nothing.
+        """
+        self.ser.write(lx.move_telescope_west())
+        
+    def move_east(self):
+        """Move Telescope East.
+        
+           Returns nothing.
+        """
+        self.ser.write(lx.move_telescope_east())
+        
+    def move_north(self):
+        """Move Telescope North.
+        
+           Returns nothing.
+        """
+        self.ser.write(lx.move_telescope_north())
+        
+    def move_south(self):
+        """Move Telescope South.
+        
+           Returns nothing.
+        """
+        self.ser.write(lx.move_telescope_south())
+        
+    def stop_west(self):
+        """Stop Telescope West.
+        
+           Returns nothing.
+        """
+        self.ser.write(lx.stop_telescope_west())
+        
+    def stop_east(self):
+        """Stop Telescope East.
+        
+           Returns nothing.
+        """
+        self.ser.write(lx.stop_telescope_east())
+        
+    def stop_north(self):
+        """Stop Telescope North.
+        
+           Returns nothing.
+        """
+        self.ser.write(lx.stop_telescope_north())
+        
+    def stop_south(self):
+        """Stop Telescope South.
+        
+           Returns nothing.
+        """
+        self.ser.write(lx.stop_telescope_south())
+    
+    
     
     
         

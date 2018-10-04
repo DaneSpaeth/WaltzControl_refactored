@@ -1,11 +1,13 @@
 from entities.positions import HorizontalPositionHA
 from entities.local_sidereal_time import LocalSiderealTime
 from use_cases.position_update import PositionUpdaterHA
+from use_cases.movements import Mover
 from use_cases.tel_controller_boundarys import TelescopeControllerResponseBoundary
 from interface_adapters.tel_controller import TelescopeControllerAPI
 from interface_adapters.presenter import PositionPresenterHA, TimePresenter
 from interface_adapters.view_models import PositionViewModel, TimeViewModel
 from interface_adapters.times  import LocalTime, CoordinatedUniversalTime
+from interface_adapters.user_controller import UserController
 from external_interfaces.tel_communication import TelescopeCommunicator
 from external_interfaces.pointing_main_view import WaltzPointing
 
@@ -36,6 +38,10 @@ def create_instances():
                                     tel_response,
                                     pos_presenter,
                                     LST)
+    mover = Mover(tel_command)
+    user_control = UserController(mover)
+    
+    
     return (hor_pos,
             LST,
             LT,
@@ -43,7 +49,9 @@ def create_instances():
             pos_view_model,
             time_view_model,
             pos_updater,
-            time_presenter,)
+            time_presenter,
+            mover,
+            user_control)
 
 def refresh_position(Stop=False):
     """Infinite Loop to update and present position.
@@ -75,10 +83,12 @@ if __name__ == '__main__':
      pos_view_model,
      time_view_model,
      pos_updater,
-     time_presenter) = create_instances()
+     time_presenter,
+     mover,
+     user_control) = create_instances()
     #threading.Thread(target = refresh_position).start()
     threading.Thread(target = refresh_times).start()
-    WP = WaltzPointing(pos_view_model, time_view_model)
+    WP = WaltzPointing(pos_view_model, time_view_model, user_control)
     WP.mainloop()
 
 
