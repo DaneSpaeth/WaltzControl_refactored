@@ -70,17 +70,6 @@ def refresh_times(Stop = False):
         pos_updater.request_update_present_position()
         time_presenter.present_times()
         time.sleep(0.2)
-        
-def close_window(window, thread):
-        """Defines which actions to call when window is destroyed.
-        """
-        if thread:
-            thread.join()
-        window.destroy()
-
-
-
-
 
 if __name__ == '__main__':
     (hor_pos,
