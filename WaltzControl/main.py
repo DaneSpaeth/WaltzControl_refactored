@@ -70,6 +70,13 @@ def refresh_times(Stop = False):
         pos_updater.request_update_present_position()
         time_presenter.present_times()
         time.sleep(0.2)
+        
+def close_window(window, thread):
+        """Defines which actions to call when window is destroyed.
+        """
+        if thread:
+            thread.join()
+        window.destroy()
 
 
 
@@ -86,9 +93,11 @@ if __name__ == '__main__':
      time_presenter,
      mover,
      user_control) = create_instances()
-    #threading.Thread(target = refresh_position).start()
-    threading.Thread(target = refresh_times).start()
+    #Create daemon thread. We choose a daemon 
+    #so that it will stop automatically if mainloop is stopped
+    refresh = threading.Thread(target = refresh_times)
+    refresh.daemon = True
+    refresh.start()
+    
     WP = WaltzPointing(pos_view_model, time_view_model, user_control)
     WP.mainloop()
-
-
