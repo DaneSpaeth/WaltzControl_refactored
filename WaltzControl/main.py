@@ -2,6 +2,7 @@ from entities.positions import HorizontalPositionHA
 from entities.local_sidereal_time import LocalSiderealTime
 from use_cases.position_update import PositionUpdaterHA
 from use_cases.movements import Mover
+from use_cases.speeds import SpeedChanger
 from use_cases.tel_controller_boundarys import TelescopeControllerResponseBoundary
 from interface_adapters.tel_controller import TelescopeControllerAPI
 from interface_adapters.presenter import PositionPresenterHA, TimePresenter
@@ -39,6 +40,7 @@ def create_instances():
                                     pos_presenter,
                                     LST)
     mover = Mover(tel_command)
+    speed_changer = SpeedChanger(tel_command)
     user_control = UserController(mover)
     
     
@@ -51,6 +53,7 @@ def create_instances():
             pos_updater,
             time_presenter,
             mover,
+            speed_changer,
             user_control)
 
 def refresh_position(Stop=False):
@@ -81,6 +84,7 @@ if __name__ == '__main__':
      pos_updater,
      time_presenter,
      mover,
+     speed_changer,
      user_control) = create_instances()
     #Create daemon thread. We choose a daemon 
     #so that it will stop automatically if mainloop is stopped

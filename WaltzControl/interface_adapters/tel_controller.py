@@ -77,6 +77,22 @@ class TelescopeControllerAPI(TelescopeControllerRequestBoundary):
     def stop_south(self):
         """Send command to tel_communicator."""
         self.tel_communicator.stop_south()
+        
+    def set_speed_guide(self):
+        """Send command to tel_communicator."""
+        self.tel_communicator.set_speed_guide()
+        
+    def set_speed_center(self):
+        """Send command to tel_communicator."""
+        self.tel_communicator.set_speed_center()
+        
+    def set_speed_find(self):
+        """Send command to tel_communicator."""
+        self.tel_communicator.set_speed_find()
+        
+    def set_speed_slew(self):
+        """Send command to tel_communicator."""
+        self.tel_communicator.set_speed_slew()
     
     
         

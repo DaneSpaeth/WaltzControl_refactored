@@ -20,6 +20,7 @@ class ControlView(tk.Frame):
                                    width = 2)
         self.south_button.grid(row=0,column=1)
         
+        
         self.west_button = tk.Button(self,
                                      text="W",
                                   font=('arial', 20, 'bold'),
@@ -53,3 +54,68 @@ class ControlView(tk.Frame):
                                   activeforeground='Red',
                                   activebackground='White')
         self.stop_button.grid(row=3,column=0, columnspan=3, pady=10)
+        
+        #Add Bindings
+        self.enable_all_buttons()
+        
+    def enable_all_buttons(self):
+        """Enables and binds all buttons."""
+        for child in self.winfo_children():
+            child.config(state='normal')
+        
+        self.north_button.bind("<ButtonPress-1>",
+                               self.start_move_north_buttonclick)
+        self.north_button.bind("<ButtonRelease-1>",
+                               self.stop_move_north_buttonclick)
+        self.west_button.bind("<ButtonPress-1>",
+                              self.start_move_west_buttonclick)
+        self.west_button.bind("<ButtonRelease-1>",
+                              self.stop_move_west_buttonclick)
+        self.south_button.bind("<ButtonPress-1>",
+                               self.start_move_south_buttonclick)
+        self.south_button.bind("<ButtonRelease-1>",
+                               self.stop_move_south_buttonclick)
+        self.east_button.bind("<ButtonPress-1>",
+                              self.start_move_east_buttonclick)
+        self.east_button.bind("<ButtonRelease-1>",
+                              self.stop_move_east_buttonclick)
+        
+    def start_move_west_buttonclick(self, event):
+        """ Calls corresponding method of user_control.
+        """
+        self.user_control.move_west()
+        
+    def stop_move_west_buttonclick(self, event):
+        """ Calls corresponding method of user_control.
+        """
+        self.user_control.stop_west()
+        
+    def start_move_north_buttonclick(self, event):
+        """ Calls corresponding method of user_control.
+        """
+        self.user_control.move_north()
+        
+    def stop_move_north_buttonclick(self, event):
+        """ Calls corresponding method of user_control.
+        """
+        self.user_control.stop_north()
+        
+    def start_move_south_buttonclick(self, event):
+        """ Calls corresponding method of user_control.
+        """
+        self.user_control.move_south()
+        
+    def stop_move_south_buttonclick(self, event):
+        """ Calls corresponding method of user_control.
+        """
+        self.user_control.stop_south()
+        
+    def start_move_east_buttonclick(self, event):
+        """ Calls corresponding method of user_control.
+        """
+        self.user_control.move_east()
+        
+    def stop_move_east_buttonclick(self, event):
+        """ Calls corresponding method of user_control.
+        """
+        self.user_control.stop_east()

@@ -110,6 +110,38 @@ class TelescopeCommunicator(TelescopeCommunicatorInterface):
            Returns nothing.
         """
         self.ser.write(lx.stop_telescope_south())
+        
+    def set_speed_guide(self):
+        """Set speed to guide speed.
+        
+           Returns nothing.
+        """
+        self.ser.write(lx.set_telescope_speed_guide())
+        
+    def set_speed_center(self):
+        """Set speed to center speed.
+        
+           Returns nothing.
+        """
+        self.ser.write(lx.set_telescope_speed_center())
+    
+    def set_speed_find(self):
+        """Set speed to find speed.
+        
+           Returns nothing.
+        """
+        self.ser.write(lx.set_telescope_speed_find())
+        
+    
+    def set_speed_slew(self):
+        """Set speed to slew speed.
+        
+           Returns nothing.
+        """
+        self.ser.write(lx.set_telescope_speed_slew())
+        
+           
+        
     
     
     

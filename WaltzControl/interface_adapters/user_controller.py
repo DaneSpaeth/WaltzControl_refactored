@@ -1,6 +1,4 @@
 """Contains Controller class for controlling Inputs from User."""
-from use_cases.movements import Mover
-
 
 class UserController:
     """Control Inputs from User."""
@@ -9,7 +7,7 @@ class UserController:
         
            Input: Injection of Mover instance.
         """
-        self.mover = Mover
+        self.mover = mover
     def move_west(self):
         """Trigger move_west use case in Mover instance."""
         self.mover.move_west()
@@ -23,14 +21,17 @@ class UserController:
         """Trigger move_south use case in Mover instance."""
         self.mover.move_south()
     def stop_west(self):
-        """Trigger stop_west use casein Mover instance."""
+        """Trigger stop_west use case in Mover instance."""
         self.mover.stop_west()
     def stop_east(self):
-        """Trigger stop_east use casein Mover instance."""
+        """Trigger stop_east use case in Mover instance."""
         self.mover.stop_east()
     def stop_north(self):
-        """Trigger stop_north use casein Mover instance."""
+        """Trigger stop_north use case in Mover instance."""
         self.mover.stop_north()
     def stop_south(self):
-        """Trigger stop_south use casein Mover instance."""
+        """Trigger stop_south use case in Mover instance."""
         self.mover.stop_south()
+    def set_speed_guide(self):
+        """Trigger set_speed_guide use case in SpeedChanger instance."""
+        pass

@@ -50,4 +50,26 @@ def test_stop_telescope_south():
     command = lx.stop_telescope_south()
     assert command == b'#:Qs#'
     
+def test_set_telecope_speed_guide():
+    """Test set_telecope_speed_guide."""
+    command = lx.set_telescope_speed_guide()
+    assert command == b'#:RG#'
+    
+def test_set_telecope_speed_center():
+    """Test set_telecope_speed_center."""
+    command = lx.set_telescope_speed_center()
+    assert command == b'#:RC#'
+    
+def test_set_telecope_speed_find():
+    """Test set_telecope_speed_find."""
+    command = lx.set_telescope_speed_find()
+    assert command == b'#:RM#'
+    
+def test_set_telecope_speed_slew():
+    """Test set_telecope_speed_slew."""
+    command = lx.set_telescope_speed_slew()
+    assert command == b'#:RS#'
+    
+
+    
 

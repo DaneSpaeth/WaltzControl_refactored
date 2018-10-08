@@ -59,3 +59,29 @@ def stop_telescope_south():
     """
     command = b'#:Qs#'
     return command
+
+def set_telescope_speed_guide():
+    """Return Lx200 protocol command for "Set Slew Rate to Guiding Rate".
+    """
+    command = b'#:RG#'
+    return command
+
+def set_telescope_speed_center():
+    """Return Lx200 protocol command for "Set Slew Rate to Centering Rate".
+    """
+    command = b'#:RC#'
+    return command
+
+def set_telescope_speed_find():
+    """Return Lx200 protocol command for "Set Slew Rate to Find Rate".
+    """
+    command = b'#:RM#'
+    return command
+
+def set_telescope_speed_slew():
+    """Return Lx200 protocol command for "Set Slew Rate to Max Rate".
+    """
+    command = b'#:RS#'
+    return command
+    
+
