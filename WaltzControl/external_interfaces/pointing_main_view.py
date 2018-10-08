@@ -2,6 +2,7 @@ import tkinter as tk
 
 from external_interfaces.position_view import OutputView
 from external_interfaces.control_view import ControlView
+from external_interfaces.interchange_view import InterchangeView
 
 class WaltzPointing(tk.Tk):
     """Main Window."""
@@ -20,10 +21,12 @@ class WaltzPointing(tk.Tk):
         
         self.position_view = OutputView(pos_view_model, time_view_model, self)
         self.control_view = ControlView(user_control, self)
+        self.interchange_view = InterchangeView(self.control_view, self)
         
-        self.position_view.grid(row=0,column=0)
+        self.position_view.grid(row = 0,columnspan = 3)
         
-        self.control_view.grid(row=1,column=0,pady=10)
+        self.control_view.grid(row = 1, column = 1, pady = 10)
+        self.interchange_view.grid(row = 1, column = 0, pady = 10)
 
 if __name__ == '__main__':
     WP = WaltzPointing()
