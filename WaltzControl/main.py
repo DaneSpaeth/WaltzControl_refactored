@@ -5,8 +5,12 @@ from use_cases.movements import Mover
 from use_cases.speeds import SpeedChanger
 from use_cases.tel_controller_boundarys import TelescopeControllerResponseBoundary
 from interface_adapters.tel_controller import TelescopeControllerAPI
-from interface_adapters.presenter import PositionPresenterHA, TimePresenter
-from interface_adapters.view_models import PositionViewModel, TimeViewModel
+from interface_adapters.presenter import (PositionPresenterHA,
+                                          TimePresenter,
+                                          SpeedPresenter)
+from interface_adapters.view_models import (PositionViewModel,
+                                            TimeViewModel,
+                                            SpeedViewModel)
 from interface_adapters.times  import LocalTime, CoordinatedUniversalTime
 from interface_adapters.user_controller import UserController
 from external_interfaces.tel_communication import TelescopeCommunicator
@@ -32,16 +36,18 @@ def create_instances():
     tel_command = TelescopeControllerAPI(tel_response,tel_communicator)
     pos_view_model = PositionViewModel()
     time_view_model = TimeViewModel()
+    speed_view_model = SpeedViewModel()
     pos_presenter = PositionPresenterHA(hor_pos, pos_view_model)
     time_presenter = TimePresenter(LST, LT, UTC, time_view_model)
+    speed_presenter = SpeedPresenter(speed_view_model)
     pos_updater = PositionUpdaterHA(hor_pos,
                                     tel_command,
                                     tel_response,
                                     pos_presenter,
                                     LST)
     mover = Mover(tel_command)
-    speed_changer = SpeedChanger(tel_command)
-    user_control = UserController(mover)
+    speed_changer = SpeedChanger(tel_command, speed_presenter)
+    user_control = UserController(mover, speed_changer)
     
     
     return (hor_pos,
@@ -50,6 +56,7 @@ def create_instances():
             UTC,
             pos_view_model,
             time_view_model,
+            speed_view_model,
             pos_updater,
             time_presenter,
             mover,
@@ -81,6 +88,7 @@ if __name__ == '__main__':
      UTC,
      pos_view_model,
      time_view_model,
+     speed_view_model,
      pos_updater,
      time_presenter,
      mover,
@@ -92,5 +100,6 @@ if __name__ == '__main__':
     refresh.daemon = True
     refresh.start()
     
-    WP = WaltzPointing(pos_view_model, time_view_model, user_control)
+    WP = WaltzPointing(pos_view_model, time_view_model, speed_view_model,
+                       user_control)
     WP.mainloop()

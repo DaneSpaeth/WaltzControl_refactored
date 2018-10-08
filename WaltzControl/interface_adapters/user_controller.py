@@ -2,12 +2,14 @@
 
 class UserController:
     """Control Inputs from User."""
-    def __init__(self, mover):
+    def __init__(self, mover, speed_changer):
         """Contruct instance.
         
            Input: Injection of Mover instance.
+                  Injection of SpeedChanger instance.
         """
         self.mover = mover
+        self.speed_changer = speed_changer
     def move_west(self):
         """Trigger move_west use case in Mover instance."""
         self.mover.move_west()
@@ -34,4 +36,14 @@ class UserController:
         self.mover.stop_south()
     def set_speed_guide(self):
         """Trigger set_speed_guide use case in SpeedChanger instance."""
-        pass
+        self.speed_changer.set_speed_guide()
+    def set_speed_center(self):
+        """Trigger set_speed_center use case in SpeedChanger instance."""
+        self.speed_changer.set_speed_center()
+    def set_speed_find(self):
+        """Trigger set_speed_find use case in SpeedChanger instance."""
+        self.speed_changer.set_speed_find()
+    def set_speed_slew(self):
+        """Trigger set_speed_slew use case in SpeedChanger instance."""
+        self.speed_changer.set_speed_slew()
+    

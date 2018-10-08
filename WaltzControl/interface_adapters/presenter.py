@@ -51,3 +51,15 @@ class TimePresenter:
         self.time_view_model.LST = self.LST.as_string
         self.time_view_model.LT = self.LT.as_string
         self.time_view_model.UTC = self.UTC.as_string
+        
+class SpeedPresenter:
+    """Present Speed in SpeedViewModel."""
+    def __init__(self, speed_view_model):
+        """Construct instance.
+        
+           Input: Injection of SpeedViewModel Instance.
+        """
+        self.speed_view_model = speed_view_model
+    
+    def present_speed(self, speed):
+        self.speed_view_model.speed = speed

@@ -1,4 +1,4 @@
-"""Sontains simple data structures for displaying data.
+"""Contains simple data structures for displaying data.
 """
 
 class PositionViewModel:
@@ -16,4 +16,9 @@ class TimeViewModel:
         self.LST = ''
         self.LT = ''
         self.UTC = ''
+        
+class SpeedViewModel:
+    """Contains current speed as string."""
+    def __init__(self):
+        self.speed = ''
         
