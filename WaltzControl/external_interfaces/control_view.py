@@ -12,21 +12,24 @@ class ControlView(tk.Frame):
         
         self.user_control = user_control
         
-        self.south_button = tk.Button(text="S",
+        self.south_button = tk.Button(self,
+                                      text="S",
                                    font=('arial', 20, 'bold'),
                                    bg='LightGrey',
                                    height = 1, 
                                    width = 2)
         self.south_button.grid(row=0,column=1)
         
-        self.west_button = tk.Button(text="W",
+        self.west_button = tk.Button(self,
+                                     text="W",
                                   font=('arial', 20, 'bold'),
                                   bg='LightGrey',
                                   height = 1,
                                   width = 2)
         self.west_button.grid(row=1,column=0)
         
-        self.east_button = tk.Button(text="E",
+        self.east_button = tk.Button(self,
+                                     text="E",
                                   font=('arial', 20, 'bold'),
                                   bg='LightGrey',
                                   height = 1,
@@ -34,14 +37,16 @@ class ControlView(tk.Frame):
         self.east_button.grid(row=1,column=2)
         
         
-        self.north_button = tk.Button(text="N",
+        self.north_button = tk.Button(self,
+                                      text="N",
                                    font=('arial', 20, 'bold'),
                                    bg='LightGrey',
                                    height = 1,
                                    width = 2)
         self.north_button.grid(row=2,column=1)
         
-        self.stop_button = tk.Button(text="STOP",
+        self.stop_button = tk.Button(self,
+                                     text="STOP",
                                   font=('arial',20, 'bold'),
                                   fg='White',
                                   bg='Red',

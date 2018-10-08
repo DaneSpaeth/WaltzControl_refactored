@@ -15,14 +15,15 @@ class WaltzPointing(tk.Tk):
         """
         super().__init__(*args, **kwargs)
         self.title("WaltzControl")
-        self.geometry("800x600")
+        #self.geometry("800x600")
         self.resizable(width=False, height=False)
         
         self.position_view = OutputView(pos_view_model, time_view_model, self)
-        self.position_view.grid(row=0,columnspan=3)
-        
         self.control_view = ControlView(user_control, self)
-        self.control_view.grid(row=1,column=1,pady=10)
+        
+        self.position_view.grid(row=0,column=0)
+        
+        self.control_view.grid(row=1,column=0,pady=10)
 
 if __name__ == '__main__':
     WP = WaltzPointing()

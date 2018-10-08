@@ -11,7 +11,7 @@ class OutputView(tk.Frame):
            Inject pos_view_model, time_view_model and parent frame.
         """
         super().__init__(parent, *args, **kwargs)
-        
+
         self.pos_view_model = pos_view_model
         self.time_view_model = time_view_model
         
@@ -31,57 +31,69 @@ class OutputView(tk.Frame):
         self.ha.set(self.pos_view_model.ha)
         
         #Display Time
-        self.LST_label= tk.Label(font=('arial', 15, 'bold'),
+        self.LST_label= tk.Label(self,
+                                 font=('arial', 15, 'bold'),
                                 text= "LST")
         self.LST_label.grid(row = 0, column = 0)
         
-        self.LST_display= tk.Label(font=('arial', 20, 'bold'), 
+        self.LST_display= tk.Label(self,
+                                   font=('arial', 20, 'bold'), 
                                   bg='light green',
                                   textvariable = self.LST)
         self.LST_display.grid(row = 0, column = 1, padx = 10, pady = 10)
         
-        self.LT_label= tk.Label(font=('arial', 15, 'bold'),
+        self.LT_label= tk.Label(self,
+                                font=('arial', 15, 'bold'),
                                 text= "LT")
         self.LT_label.grid(row = 0, column = 2)
         
-        self.LT_display= tk.Label(font=('arial', 20, 'bold'), 
+        self.LT_display= tk.Label(self,
+                                  font=('arial', 20, 'bold'), 
                                   bg='light green',
                                   textvariable = self.LT)
         self.LT_display.grid(row = 0, column = 3, padx = 10, pady = 10)
         
-        self.UTC_label= tk.Label(font=('arial', 15, 'bold'),
+        self.UTC_label= tk.Label(self,
+                                 font=('arial', 15, 'bold'),
                                 text= "UTC")
         self.UTC_label.grid(row = 0, column = 4)
         
-        self.UTC_display= tk.Label(font=('arial', 20, 'bold'), 
+        self.UTC_display= tk.Label(self,
+                                   font=('arial', 20, 'bold'), 
                                   bg='light green',
                                   textvariable = self.UTC)
         self.UTC_display.grid(row = 0, column = 5, padx = 10, pady = 10)
         
         #Store position
-        self.RA_label= tk.Label(font=('arial', 15, 'bold'),
+        self.RA_label= tk.Label(self,
+                                font=('arial', 15, 'bold'),
                                 text= "RA")
         self.RA_label.grid(row = 1, column = 0)
         
-        self.RA_display= tk.Label(font=('arial', 20, 'bold'), 
+        self.RA_display= tk.Label(self,
+                                  font=('arial', 20, 'bold'), 
                                   bg='light green',
                                   textvariable = self.ra)
         self.RA_display.grid(row = 1, column = 1)
         
-        self.DEC_label= tk.Label(font=('arial', 15, 'bold'),
+        self.DEC_label= tk.Label(self,
+                                 font=('arial', 15, 'bold'),
                                  text= "DEC")
         self.DEC_label.grid(row = 1, column = 2)
         
-        self.DEC_display= tk.Label(font=('arial', 20, 'bold'),
+        self.DEC_display= tk.Label(self,
+                                   font=('arial', 20, 'bold'),
                                    bg='light green',
                                    textvariable = self.dec)
         self.DEC_display.grid(row = 1, column = 3)
         
-        self.HA_label= tk.Label(font=('arial', 15, 'bold'),
+        self.HA_label= tk.Label(self,
+                                font=('arial', 15, 'bold'),
                                  text= "HA")
         self.HA_label.grid(row = 1, column = 4)
         
-        self.HA_display= tk.Label(font=('arial', 20, 'bold'),
+        self.HA_display= tk.Label(self,
+                                  font=('arial', 20, 'bold'),
                                    bg='light green',
                                    textvariable = self.ha)
         self.HA_display.grid(row = 1, column = 5)
