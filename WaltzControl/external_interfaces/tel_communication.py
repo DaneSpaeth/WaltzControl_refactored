@@ -140,6 +140,13 @@ class TelescopeCommunicator(TelescopeCommunicatorInterface):
         """
         self.ser.write(lx.set_telescope_speed_slew())
         
+    def toggle_precision(self):
+        """Toggle Precision.
+        
+           Returns nothing.
+        """
+        self.ser.write(lx.toggle_telescope_precision())
+        
            
         
     

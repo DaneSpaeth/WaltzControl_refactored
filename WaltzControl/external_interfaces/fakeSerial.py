@@ -28,7 +28,7 @@ class Serial:
         #self.fake_ra=b""
         #self.fake_dec=b""
         self.fake_ra=b"15:15:00#"
-        self.fake_dec=b"+25*00'00#"
+        self.fake_dec=b"+25*00#"
         self.fake_target_ra=b''
         self.fake_target_dec=b''
         self.in_waiting=len(self._data)
@@ -90,6 +90,9 @@ class Serial:
             print('Stop Slewing')
             self.fake_ra=self.fake_target_ra
             self.fake_dec=self.fake_target_dec
+            
+        if self._receivedData==b'#:U#':
+            self.fake_dec = b'+25*00:00#'
 
     # read()
     # reads n characters from the fake Arduino. Actually n characters

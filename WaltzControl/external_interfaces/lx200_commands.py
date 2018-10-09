@@ -83,5 +83,9 @@ def set_telescope_speed_slew():
     """
     command = b'#:RS#'
     return command
-    
+
+def toggle_telescope_precision():
+    """Return Lx200 command for "Toggle Precision"."""
+    command = b'#:U#'
+    return command
 

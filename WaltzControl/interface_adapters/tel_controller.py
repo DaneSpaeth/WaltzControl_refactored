@@ -33,12 +33,29 @@ class TelescopeControllerAPI(TelescopeControllerRequestBoundary):
         """
         self.UC_input.set_dec_response(dec)
         
+    def check_precision_via_length(self, string_dec):
+        """Checks string for length and 
+           calls tel_communicator to toggle precision.
+        """
+        if len(string_dec) == 7:
+            return True
+        else:
+            return False
+        
     def request_position(self):
         """Request position from serial connection, 
            transform to floats and send to UC input.
         """
         string_ra = self.tel_communicator.get_ra()
         string_dec = self.tel_communicator.get_dec()
+        
+        #Check for length of string_dec. Too short length (low precission setting)
+        #should at the current state not be possible
+        #Toggle precision in that case
+        if self.check_precision_via_length(string_dec):
+            self.tel_communicator.toggle_precision()
+            string_ra = self.tel_communicator.get_ra()
+            string_dec = self.tel_communicator.get_dec()
         
         ra_float=high_prec_to_float(string_ra)
         dec_float=high_prec_to_float(string_dec)
